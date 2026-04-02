@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Portfolio | Security Researcher</title>
+    
+    <style>
+        /* CSS - Estilização */
+        :root {
+            --bg-color: #0a0a0a;
+            --main-green: #00ff41;
+            --text-color: #e0e0e0;
+            --accent-dim: #003b00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Canvas de Fundo (Efeito Matrix) */
+        #matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.2;
+        }
+
+        header {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 1px solid var(--main-green);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--main-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--main-green);
+        }
+
+        /* Seção Hero */
+        #hero {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .glitch {
+            color: var(--main-green);
+            font-size: 3rem;
+            margin: 10px 0;
+            text-shadow: 2px 2px var(--accent-dim);
+        }
+
+        .terminal-loader {
+            color: #888;
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* Layout Geral */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h2 {
+            border-left: 4px solid var(--main-green);
+            padding-left: 15px;
+            margin-bottom: 30px;
+            color: var(--main-green);
+            text-transform: uppercase;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-card {
+            background: #111;
+            padding: 20px;
+            border: 1px solid #333;
+            text-align: center;
+            transition: 0.3s ease;
+            cursor: default;
+        }
+.skill-card a {
+    color: inherit; /* Mantém a cor que você já definiu para o card */
+    text-decoration: none; /* Remove o sublinhado */
+    display: block; /* Faz o card inteiro ser clicável, não só o texto */
+    width: 100%;
+    height: 100%;
+}
+
+.skill-card a:hover {
+    color: #00ff00; /* Cor de destaque (verde neon) ao passar o mouse */
+}
+        .skill-card:hover {
+            border-color: var(--main-green);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Projetos */
+        .project-item {
+            background: rgba(20, 20, 20, 0.8);
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #222;
+            border-left: 3px solid var(--main-green);
+        }
+
+        .project-item h3 {
+            color: var(--main-green);
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #222;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        footer a {
+            color: var(--main-green);
+            text-decoration: none;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; }
+            nav ul { margin-top: 15px; }
+            .glitch { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+
+    <header>
+        <nav>
+            <div class="logo">ROOT@USER<span>_</span></div>
+            <ul>
+                <li><a href="#about">SOBRE</a></li>
+                <li><a href="#soft-skills"> HARD-SKILLS</a></li>
+                <li><a href="#projects">PROJETOS</a></li>
+                 <li><a href="#contatos">contatos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-content">
+            <p>> apt-get install EXPERIENCE...</p>
+            <h1 class="glitch">EDUARDO PEREIRA</h1>
+            <p><strong>Cybersecurity Analyst | REDES | FORTINET | AWS | BANCO DE DADOS | PYTHON | CRIPTOGRAFIA</strong></p>
+            <div class="terminal-loader" id="typing"></div>
+        </div>
+    </section>
+
+    <div class="container" id="about">
+        <h2>01. Sobre Mim</h2>
+        <p>
+           
+Estudante de tecnologia em Brasília, focado em transformar vulnerabilidades em soluções de infraestrutura segura.
+Formação: 3º Semestre no Senac DF.
+Certificações: AWS Cloud Practitioner & Introdução à Cibersegurança.
+Hard Skills: Kali Linux, Redes, Fortinet (FortiGate/FortiAnalyzer) e Gestão de Banco de Dados.
+Busco uma oportunidade de estágio onde possa contribuir com a segurança
+ e disponibilidade dos sistemas da empresa, enquanto me especializo no setor de tecnologia.
+        </p>
+    </div>
+
+    <div class="container" id="soft-skills">
+        <h2>02. Ferramentas & Especialidades</h2>
+        <div class="skills-grid">
+            <div class="skill-card">Kali Linux </div>
+            <div class="skill-card">Nmap & Medusa</div>
+            <div class="skill-card">Fortinet </div>
+            <div class="skill-card">Python para Security</div>
+            <div class="skill-card">Análise de Malware</div>
+            <div class="skill-card">Wireshark / PCAP</div>
+            <div class="skill-card">redes / infraestrutura </div>
+            <div class="skill-card">AWS Cloud</div>
+              <div class="skill-card">veracrypt</div>
+               <div class="skill-card"> trello</div>
+        </div>
+    </div>
+
+    <div class="container" id="projects">
+        <h2>03. Projetos Recentes</h2>
+        <div class="project-item">
+            <h3>[#] Scanner de Vulnerabilidades Web</h3>
+            <p>Desenvolvimento de um programa: nmap para a descoberta de diretórios e falhas de configuração em servidores Apache.</p>
+        </div>
+        <div class="project-item">
+            <h3>[#] Relatório de Pentest: Infraestrutura Cloud</h3>
+            <p>Simulação completa de ataque e defesa em ambiente, focando em escalação de privilégios.</p>
+        </div>
+         <div class="project-item">
+            <h3>[#] Relatório de politicas de firewall no fortinet</h3>
+            <p>Simulação completa de configuração e teste de políticas de firewall em dispositivos Fortinet.</p>
+        </div>
+          <div class="project-item">
+            <h3>[#] criptografia assimetrica e criptografia simetrica</h3>
+            <p>Estudo e implementação de técnicas de criptografia assimétrica e simétrica para garantir a segurança das comunicações.</p>
+        </div>
+    </div>
+    <div class="container" id="contatos">
+        <h2>04. Contatos</h2>
+<div class="skill-card">
+    <a href="eduardopereira124124@gmail.com"target="_blank">E-mail</a>
+</div>
+
+<div class="skill-card">
+    <a href="https://wa.me/5561981355607" target="_blank">WhatsApp</a>
+</div>
+<div class="skill-card">
+    <a href="https://www.linkedin.com/in/eduardo-pereira-415412370?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">LinkedIn</a>
+</div>
+
+<div class="skill-card">
+    <a href="https://github.com/SEU_USUARIO" target="_blank">GitHub</a>
+</div>
+    </div>
+
+    <footer>
+        <p>© 2026 | System Status: <span style="color: var(--main-green);">ONLINE</span> | </p>
+    </footer>
+
+    <script>
+        // JS - Efeito Matrix
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = "0123456789ABCDEFHIJKLMNOPQRSTUVWXYZ@#$%^&*";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#00ff41";
+            ctx.font = fontSize + "px arial";
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = letters.charAt(Math.floor(Math.random() * letters.length));
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 50);
+
+        // Ajuste no redimensionamento
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Efeito simples de digitação no Hero
+        const typingElement = document.getElementById('typing');
+        const textToType = "> Estabelecendo conexão segura... [OK]";
+        let index = 0;
+
+        function typeEffect() {
+            if (index < textToType.length) {
+                typingElement.innerHTML += textToType.charAt(index);
+                index++;
+                setTimeout(typeEffect, 100);
+            }
+        }
+        typeEffect();
+    </script>
+</body>
+</html>
