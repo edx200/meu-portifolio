@@ -6,6 +6,41 @@
     <title>Terminal de Acesso | portifólio Lab</title>
     
     <style>
+        /* --- AJUSTE PARA CELULAR --- */
+@media (max-width: 768px) {
+    /* Ajusta o cabeçalho ROOT@USER */
+    header, .header {
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Faz o menu quebrar em várias linhas para não sumir da tela */
+    nav, .navbar, .menu {
+        display: flex;
+        flex-wrap: wrap; /* O SEGREDO: joga o que não couber para baixo */
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 5px;
+    }
+
+    /* Diminui um pouco o tamanho dos links no menu */
+    nav a, .menu a {
+        font-size: 12px !important;
+        padding: 5px !important;
+    }
+
+    /* Ajusta o corpo do texto para não bater nas bordas do celular */
+    body, section, .container {
+        padding: 10px;
+        overflow-x: hidden; /* Evita a barra de rolagem lateral chata */
+    }
+
+    /* Garante que as imagens não estourem a tela */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
         body {
             margin: 0;
             padding: 0;
