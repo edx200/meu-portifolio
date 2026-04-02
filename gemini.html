@@ -266,6 +266,68 @@
             nav ul { margin-top: 15px; }
             .glitch { font-size: 2rem; }
         }
+        /* --- AJUSTE PARA CELULAR --- */
+@media (max-width: 768px) {
+    /* Ajusta o cabeçalho ROOT@USER */
+    header, .header {
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Faz o menu quebrar em várias linhas para não sumir da tela */
+    nav, .navbar, .menu {
+        display: flex;
+        flex-wrap: wrap; /* O SEGREDO: joga o que não couber para baixo */
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 5px;
+    }
+
+    /* Diminui um pouco o tamanho dos links no menu */
+    nav a, .menu a {
+        font-size: 12px !important;
+        padding: 5px !important;
+    }
+
+    /* Ajusta o corpo do texto para não bater nas bordas do celular */
+    body, section, .container {
+        padding: 10px;
+        overflow-x: hidden; /* Evita a barra de rolagem lateral chata */
+    }
+
+    /* Garante que as imagens não estourem a tela */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+        /* Configurações para Celular */
+@media (max-width: 768px) {
+    
+    /* Faz os cards de certificação ficarem um embaixo do outro */
+    .cert-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cert-card {
+        width: 90%; /* Ocupa quase a largura toda da tela */
+        margin-bottom: 20px;
+    }
+
+    /* Ajusta o tamanho das fontes para não estourarem */
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Se você tiver um menu lateral, aqui você pode escondê-lo 
+       ou transformá-lo em um menu hambúrguer */
+}
     </style>
 </head>
 <body>
