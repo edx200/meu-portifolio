@@ -299,6 +299,71 @@
             line-height: 1.7;
         }
 
+        /* ── Problema / Solução ── */
+        .prob-title {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+            margin: 36px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .prob-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.84rem;
+        }
+
+        .prob-table thead th {
+            text-align: left;
+            padding: 10px 14px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dim);
+            border-bottom: 1px solid var(--border-hi);
+        }
+
+        .prob-table tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s;
+        }
+
+        .prob-table tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+        .prob-table tbody tr:last-child { border-bottom: none; }
+
+        .prob-table td {
+            padding: 12px 14px;
+            vertical-align: top;
+            line-height: 1.65;
+        }
+
+        .prob-table td:first-child { color: #e08080; }
+        .prob-table td:nth-child(2) { color: var(--text-dim); font-size: 0.8rem; }
+        .prob-table td:last-child { color: var(--green); }
+
+        @media (max-width: 768px) {
+            .prob-table thead { display: none; }
+            .prob-table tbody tr {
+                display: block;
+                margin-bottom: 16px;
+                border: 1px solid var(--border-hi);
+                border-left: 3px solid var(--green-dim);
+                padding: 12px;
+            }
+            .prob-table td {
+                display: block;
+                padding: 3px 0;
+                font-size: 0.82rem;
+            }
+            .prob-table td:first-child::before { content: "Problema: "; color: var(--text-dim); font-size: 0.7rem; }
+            .prob-table td:nth-child(2) { display: none; }
+            .prob-table td:last-child::before { content: "Solução: "; color: var(--text-dim); font-size: 0.7rem; }
+        }
+
         /* ── Security writeup ── */
         .writeup {
             background: var(--bg2);
@@ -693,6 +758,49 @@
             <p>Gestão de cardápio, equipe e configurações do estabelecimento. Visão consolidada de vendas, mesas ativas e pedidos em aberto.</p>
         </div>
     </div>
+
+    <p class="prob-title">// problemas reais que o app elimina</p>
+    <table class="prob-table">
+        <thead>
+            <tr>
+                <th>Problema</th>
+                <th>Impacto no restaurante</th>
+                <th>Solução no app</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pedido anotado errado no papel</td>
+                <td>Cliente recebe prato errado, reclamação e desperdício</td>
+                <td>Garçom digita no celular — sem rasuras ou letra ilegível</td>
+            </tr>
+            <tr>
+                <td>Papel da comanda se perde no caminho da cozinha</td>
+                <td>Pedido não é preparado, cliente espera sem saber</td>
+                <td>Pedido vai digital direto para a tela da cozinha</td>
+            </tr>
+            <tr>
+                <td>Garçom esquece qual mesa fez qual pedido</td>
+                <td>Prato entregue na mesa errada, constrangimento</td>
+                <td>Cada pedido vinculado ao número da mesa</td>
+            </tr>
+            <tr>
+                <td>Pedido anotado mas não enviado para a cozinha</td>
+                <td>Cliente espera, reclama, pode ir embora</td>
+                <td>Envio automático ao confirmar o pedido</td>
+            </tr>
+            <tr>
+                <td>Garçom não sabe quais pedidos já foram entregues</td>
+                <td>Dupla entrega ou pedido esquecido</td>
+                <td>Status em tempo real de cada item</td>
+            </tr>
+            <tr>
+                <td>Dificuldade de saber o total da mesa</td>
+                <td>Erro na conta, cliente insatisfeito</td>
+                <td>Fechamento automático com total calculado</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 <!-- ── SEGURANÇA APLICADA ── -->
