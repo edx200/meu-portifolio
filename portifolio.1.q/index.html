@@ -3,44 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Portfolio | Security Researcher</title>
-    
+    <title>Eduardo Pereira | Cybersecurity & Infraestrutura</title>
+    <meta name="description" content="Portfólio de Eduardo Pereira — Analista de Cibersegurança em formação. Especialista em redes, Fortinet, AWS e segurança ofensiva. Disponível para estágio, CLT e freelancer.">
+
     <style>
-        /* CSS - Estilização */
         :root {
-            --bg-color: #0a0a0a;
-            --main-green: #00ff41;
-            --text-color: #e0e0e0;
-            --accent-dim: #003b00;
+            --bg:       #0a0a0a;
+            --green:    #00ff41;
+            --green-dim:#008f11;
+            --text:     #d0d0d0;
+            --card-bg:  #111;
+            --border:   #222;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg);
+            color: var(--text);
             font-family: 'Courier New', Courier, monospace;
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        /* Canvas de Fundo (Efeito Matrix) */
+        /* ── Matrix background ── */
         #matrix {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             z-index: -1;
-            opacity: 0.2;
+            opacity: 0.15;
         }
 
+        /* ── Header / Nav ── */
         header {
             width: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            border-bottom: 1px solid var(--main-green);
+            background: rgba(0,0,0,0.92);
+            border-bottom: 1px solid var(--green-dim);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -50,291 +50,702 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 10%;
+            padding: 14px 8%;
+            gap: 12px;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            color: var(--main-green);
-            text-transform: uppercase;
+            color: var(--green);
             letter-spacing: 2px;
+            white-space: nowrap;
         }
 
         nav ul {
             display: flex;
+            flex-wrap: wrap;
             list-style: none;
+            gap: 4px;
+            justify-content: flex-end;
         }
 
         nav ul li a {
-            color: white;
+            color: #aaa;
             text-decoration: none;
-            margin-left: 25px;
-            font-size: 0.9rem;
-            transition: 0.3s;
+            padding: 5px 10px;
+            font-size: 0.82rem;
+            border: 1px solid transparent;
+            transition: 0.2s;
+            white-space: nowrap;
         }
 
         nav ul li a:hover {
-            color: var(--main-green);
+            color: var(--green);
+            border-color: var(--green-dim);
         }
 
-        /* Seção Hero */
+        /* ── Hero ── */
         #hero {
-            height: 70vh;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
+            padding: 60px 20px 40px;
         }
 
-        .glitch {
-            color: var(--main-green);
-            font-size: 3rem;
-            margin: 10px 0;
-            text-shadow: 2px 2px var(--accent-dim);
+        .hero-pre {
+            color: var(--green-dim);
+            font-size: 0.9rem;
+            margin-bottom: 14px;
+        }
+
+        h1.glitch {
+            color: var(--green);
+            font-size: 2.8rem;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            text-shadow: 0 0 20px rgba(0,255,65,0.3);
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            background: rgba(0,143,17,0.15);
+            border: 1px solid var(--green-dim);
+            color: var(--green);
+            padding: 4px 12px;
+            font-size: 0.78rem;
+            border-radius: 2px;
+        }
+
+        .hero-objective {
+            max-width: 600px;
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.2s;
+            border: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-primary {
+            background: var(--green);
+            color: #000;
+        }
+
+        .btn-primary:hover, .btn-primary:active {
+            box-shadow: 0 0 20px rgba(0,255,65,0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--green);
+            border: 1px solid var(--green-dim);
+        }
+
+        .btn-outline:hover, .btn-outline:active {
+            background: rgba(0,143,17,0.15);
         }
 
         .terminal-loader {
-            color: #888;
-            margin-top: 20px;
-            font-size: 1.1rem;
+            color: #555;
+            font-size: 0.9rem;
+            margin-top: 30px;
         }
 
-        /* Layout Geral */
+        /* ── Sections ── */
         .container {
-            max-width: 1000px;
+            max-width: 960px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 70px 24px;
         }
 
-        h2 {
-            border-left: 4px solid var(--main-green);
-            padding-left: 15px;
-            margin-bottom: 30px;
-            color: var(--main-green);
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .section-title h2 {
+            color: var(--green);
+            font-size: 1.1rem;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            white-space: nowrap;
         }
 
-        /* Skills */
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ── Sobre ── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .about-text p {
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .about-text strong { color: var(--green); }
+
+        .about-info {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--green);
+            padding: 24px;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 16px;
+            font-size: 0.88rem;
+        }
+
+        .info-item:last-child { margin-bottom: 0; }
+
+        .info-label {
+            color: var(--green-dim);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 3px;
+        }
+
+        .info-value { color: var(--text); }
+
+        .open-to {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .tag {
+            background: rgba(0,143,17,0.2);
+            border: 1px solid var(--green-dim);
+            color: var(--green);
+            padding: 3px 10px;
+            font-size: 0.75rem;
+            border-radius: 2px;
+        }
+
+        /* ── Skills ── */
+        .skills-category { margin-bottom: 30px; }
+
+        .skills-category h3 {
+            color: var(--green-dim);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+        }
+
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
         }
 
         .skill-card {
-            background: #111;
-            padding: 20px;
-            border: 1px solid #333;
+            background: var(--card-bg);
+            padding: 16px 12px;
+            border: 1px solid var(--border);
             text-align: center;
-            transition: 0.3s ease;
+            font-size: 0.85rem;
+            transition: 0.25s ease;
             cursor: default;
         }
-.skill-card a {
-    color: inherit; /* Mantém a cor que você já definiu para o card */
-    text-decoration: none; /* Remove o sublinhado */
-    display: block; /* Faz o card inteiro ser clicável, não só o texto */
-    width: 100%;
-    height: 100%;
-}
 
-.skill-card a:hover {
-    color: #00ff00; /* Cor de destaque (verde neon) ao passar o mouse */
-}
         .skill-card:hover {
-            border-color: var(--main-green);
-            box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
-            transform: translateY(-5px);
+            border-color: var(--green);
+            box-shadow: 0 0 12px rgba(0,255,65,0.15);
+            transform: translateY(-3px);
+            color: var(--green);
         }
 
-        /* Projetos */
-        .project-item {
-            background: rgba(20, 20, 20, 0.8);
-            padding: 25px;
-            margin-bottom: 25px;
-            border: 1px solid #222;
-            border-left: 3px solid var(--main-green);
+        /* ── Certificações ── */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
         }
 
-        .project-item h3 {
-            color: var(--main-green);
-            margin-bottom: 10px;
+        .cert-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--green);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid #222;
-            font-size: 0.8rem;
+        .cert-card h3 {
+            color: var(--green);
+            font-size: 0.92rem;
+        }
+
+        .cert-card .issuer {
+            font-size: 0.78rem;
             color: #666;
         }
 
-        footer a {
-            color: var(--main-green);
-            text-decoration: none;
+        /* ── Projetos ── */
+        .project-item {
+            background: rgba(17,17,17,0.9);
+            padding: 26px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--green);
+            transition: 0.2s;
         }
 
-        /* Responsividade */
+        .project-item:hover {
+            border-left-color: var(--green);
+            box-shadow: 0 0 12px rgba(0,255,65,0.08);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .project-item h3 {
+            color: var(--green);
+            font-size: 0.95rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .project-item p {
+            font-size: 0.88rem;
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        /* ── Contatos ── */
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: 0.25s;
+        }
+
+        .contact-card a {
+            display: block;
+            padding: 22px 16px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .contact-card .contact-icon {
+            display: block;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--green);
+        }
+
+        .contact-card:hover {
+            border-color: var(--green);
+            box-shadow: 0 0 14px rgba(0,255,65,0.15);
+            transform: translateY(-3px);
+        }
+
+        .contact-card:hover a { color: var(--green); }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 36px 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.78rem;
+            color: #444;
+        }
+
+        footer a { color: var(--green-dim); text-decoration: none; }
+
+        footer span.online { color: var(--green); }
+
+        /* ── Responsividade ── */
         @media (max-width: 768px) {
-            nav { flex-direction: column; }
-            nav ul { margin-top: 15px; }
-            .glitch { font-size: 2rem; }
+            nav { padding: 12px 5%; }
+
+            nav ul {
+                justify-content: center;
+                gap: 4px;
+            }
+
+            nav ul li a {
+                font-size: 0.75rem;
+                padding: 4px 8px;
+            }
+
+            h1.glitch { font-size: 1.9rem; letter-spacing: 1px; }
+
+            .hero-objective { font-size: 0.88rem; }
+
+            .about-grid { grid-template-columns: 1fr; }
+
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+
+            .cert-grid { grid-template-columns: 1fr; }
+
+            .contacts-grid { grid-template-columns: repeat(2, 1fr); }
+
+            .container { padding: 50px 16px; }
+
+            .project-item { padding: 20px 16px; }
+
+            .hero-cta { gap: 10px; }
+
+            .btn { padding: 11px 18px; font-size: 0.8rem; }
+        }
+
+        @media (max-width: 400px) {
+            h1.glitch { font-size: 1.5rem; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            .contacts-grid { grid-template-columns: repeat(2, 1fr); }
+            .badge { font-size: 0.7rem; padding: 3px 8px; }
         }
     </style>
 </head>
 <body>
 
-    <canvas id="matrix"></canvas>
+<canvas id="matrix"></canvas>
 
-    <header>
-        <nav>
-            <div class="logo">ROOT@USER<span>_</span></div>
-            <ul>
-                <li><a href="#about">SOBRE</a></li>
-                <li><a href="#soft-skills"> HARD-SKILLS</a></li>
-                <li><a href="#projects">PROJETOS</a></li>
-                 <li><a href="#contatos">contatos</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <div class="logo">EDU@SEC<span style="color:#fff">_</span></div>
+        <ul>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certs">Certs</a></li>
+            <li><a href="#projects">Projetos</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <section id="hero">
-        <div class="hero-content">
-            <p>> apt-get install EXPERIENCE...</p>
-            <h1 class="glitch">EDUARDO PEREIRA</h1>
-            <p><strong>Cybersecurity Analyst | REDES | FORTINET | AWS | BANCO DE DADOS | PYTHON | CRIPTOGRAFIA</strong></p>
-            <div class="terminal-loader" id="typing"></div>
-        </div>
-    </section>
+<!-- ── HERO ── -->
+<section id="hero">
+    <p class="hero-pre">> iniciando sistema...</p>
+    <h1 class="glitch">EDUARDO PEREIRA</h1>
 
-    <div class="container" id="about">
-        <h2>01. Sobre Mim</h2>
-        <p>
-           
-Estudante de tecnologia em Brasília, focado em transformar vulnerabilidades em soluções de infraestrutura segura.
-Formação: 3º Semestre no Senac DF.
-Certificações: AWS Cloud Practitioner & Introdução à Cibersegurança.
-Hard Skills: Kali Linux, Redes, Fortinet (FortiGate/FortiAnalyzer) e Gestão de Banco de Dados.
-Busco uma oportunidade de estágio onde possa contribuir com a segurança
- e disponibilidade dos sistemas da empresa, enquanto me especializo no setor de tecnologia.
-        </p>
+    <div class="hero-badges">
+        <span class="badge">Cybersecurity</span>
+        <span class="badge">Redes & Infraestrutura</span>
+        <span class="badge">Fortinet</span>
+        <span class="badge">AWS Cloud</span>
+        <span class="badge">Python</span>
     </div>
 
-    <div class="container" id="soft-skills">
-        <h2>02. Ferramentas & Especialidades</h2>
+    <p class="hero-objective">
+        Analista de Cibersegurança em formação, baseado em Brasília–DF.<br>
+        Focado em segurança ofensiva, defesa de redes e infraestrutura cloud.<br>
+        Disponível para <strong style="color:var(--green)">estágio</strong>, <strong style="color:var(--green)">CLT</strong> ou <strong style="color:var(--green)">freelancer</strong>.
+    </p>
+
+    <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">[ ENTRAR EM CONTATO ]</a>
+        <a href="../Eduardo Pereira Correa .pdf" download class="btn btn-outline">[ BAIXAR CV ]</a>
+    </div>
+
+    <div class="terminal-loader" id="typing"></div>
+</section>
+
+<!-- ── SOBRE ── -->
+<div class="container" id="about">
+    <div class="section-title"><h2>01. Sobre Mim</h2></div>
+    <div class="about-grid">
+        <div class="about-text">
+            <p>
+                Sou estudante de <strong>Tecnologia da Informação</strong> no Senac DF (3º semestre),
+                apaixonado por segurança da informação e infraestrutura de redes.
+            </p>
+            <p>
+                Tenho experiência prática com <strong>pentest</strong>, configuração de
+                <strong>firewalls Fortinet</strong>, análise de tráfego com Wireshark,
+                e fundamentos de <strong>computação em nuvem AWS</strong>.
+            </p>
+            <p>
+                Meu objetivo é ingressar no mercado de tecnologia contribuindo com a
+                <strong>segurança e disponibilidade</strong> dos sistemas da empresa,
+                enquanto continuo me desenvolvendo como profissional de segurança ofensiva e defensiva.
+            </p>
+        </div>
+        <div class="about-info">
+            <div class="info-item">
+                <span class="info-label">Localização</span>
+                <span class="info-value">Brasília, DF — Brasil</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Formação</span>
+                <span class="info-value">Tecnologia da Informação — Senac DF (3º sem.)</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Certificações</span>
+                <span class="info-value">AWS Cloud Practitioner · Intro to Cybersecurity</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Disponível para</span>
+                <div class="open-to">
+                    <span class="tag">Estágio</span>
+                    <span class="tag">CLT</span>
+                    <span class="tag">Freelancer</span>
+                    <span class="tag">Remoto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── SKILLS ── -->
+<div class="container" id="skills">
+    <div class="section-title"><h2>02. Ferramentas & Skills</h2></div>
+
+    <div class="skills-category">
+        <h3>// Segurança Ofensiva</h3>
         <div class="skills-grid">
-            <div class="skill-card">Kali Linux </div>
-            <div class="skill-card">Nmap & Medusa</div>
-            <div class="skill-card">Fortinet </div>
-            <div class="skill-card">Python para Security</div>
+            <div class="skill-card">Kali Linux</div>
+            <div class="skill-card">Nmap</div>
+            <div class="skill-card">Medusa</div>
+            <div class="skill-card">Metasploit</div>
             <div class="skill-card">Análise de Malware</div>
             <div class="skill-card">Wireshark / PCAP</div>
-            <div class="skill-card">redes / infraestrutura </div>
+        </div>
+    </div>
+
+    <div class="skills-category">
+        <h3>// Infraestrutura & Redes</h3>
+        <div class="skills-grid">
+            <div class="skill-card">Fortinet FortiGate</div>
+            <div class="skill-card">FortiAnalyzer</div>
+            <div class="skill-card">TCP/IP</div>
+            <div class="skill-card">VPN / Firewall</div>
             <div class="skill-card">AWS Cloud</div>
-              <div class="skill-card">veracrypt</div>
-               <div class="skill-card"> trello</div>
+            <div class="skill-card">Veracrypt</div>
         </div>
     </div>
 
-    <div class="container" id="projects">
-        <h2>03. Projetos Recentes</h2>
-        <div class="project-item">
-            <h3>[#] Scanner de Vulnerabilidades Web</h3>
-            <p>Desenvolvimento de um programa: nmap para a descoberta de diretórios e falhas de configuração em servidores Apache.</p>
-        </div>
-        <div class="project-item">
-            <h3>[#] Relatório de Pentest: Infraestrutura Cloud</h3>
-            <p>Simulação completa de ataque e defesa em ambiente, focando em escalação de privilégios.</p>
-        </div>
-         <div class="project-item">
-            <h3>[#] Relatório de politicas de firewall no fortinet</h3>
-            <p>Simulação completa de configuração e teste de políticas de firewall em dispositivos Fortinet.</p>
-        </div>
-          <div class="project-item">
-            <h3>[#] criptografia assimetrica e criptografia simetrica</h3>
-            <p>Estudo e implementação de técnicas de criptografia assimétrica e simétrica para garantir a segurança das comunicações.</p>
+    <div class="skills-category">
+        <h3>// Desenvolvimento & Outros</h3>
+        <div class="skills-grid">
+            <div class="skill-card">Python</div>
+            <div class="skill-card">Bash Script</div>
+            <div class="skill-card">Git / GitHub</div>
+            <div class="skill-card">Banco de Dados</div>
+            <div class="skill-card">Linux / Windows</div>
+            <div class="skill-card">Trello / Agile</div>
         </div>
     </div>
-    <div class="container" id="contatos">
-        <h2>04. Contatos</h2>
-<div class="skill-card">
-    <a href="eduardopereira124124@gmail.com"target="_blank">E-mail</a>
 </div>
 
-<div class="skill-card">
-    <a href="https://wa.me/5561981355607" target="_blank">WhatsApp</a>
-</div>
-<div class="skill-card">
-    <a href="https://www.linkedin.com/in/eduardo-pereira-415412370?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">LinkedIn</a>
+<!-- ── CERTIFICAÇÕES ── -->
+<div class="container" id="certs">
+    <div class="section-title"><h2>03. Certificações</h2></div>
+    <div class="cert-grid">
+        <div class="cert-card">
+            <h3>AWS Certified Cloud Practitioner</h3>
+            <span class="issuer">Amazon Web Services — 2025</span>
+        </div>
+        <div class="cert-card">
+            <h3>Introduction to Cybersecurity</h3>
+            <span class="issuer">Cisco Networking Academy — 2025</span>
+        </div>
+        <div class="cert-card">
+            <h3>Fortinet Certified Associate</h3>
+            <span class="issuer">Fortinet — FortiGate / FortiAnalyzer</span>
+        </div>
+    </div>
 </div>
 
-<div class="skill-card">
-    <a href="https://github.com/SEU_USUARIO" target="_blank">GitHub</a>
-</div>
+<!-- ── PROJETOS ── -->
+<div class="container" id="projects">
+    <div class="section-title"><h2>04. Projetos</h2></div>
+
+    <div class="project-item">
+        <div class="project-header">
+            <h3>[01] Scanner de Vulnerabilidades Web</h3>
+            <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Nmap</span>
+            </div>
+        </div>
+        <p>Desenvolvimento de script em Python integrado ao Nmap para descoberta automatizada de diretórios expostos, portas abertas e falhas de configuração em servidores Apache. Identifica serviços vulneráveis e gera relatório de saída estruturado.</p>
     </div>
 
-    <footer>
-        <p>© 2026 | System Status: <span style="color: var(--main-green);">ONLINE</span> | </p>
-    </footer>
+    <div class="project-item">
+        <div class="project-header">
+            <h3>[02] Pentest: Infraestrutura Cloud</h3>
+            <div class="project-tags">
+                <span class="tag">AWS</span>
+                <span class="tag">Pentest</span>
+            </div>
+        </div>
+        <p>Simulação completa de ataque e defesa em ambiente cloud AWS, com foco em escalação de privilégios, identificação de misconfigurações em buckets S3 e análise de políticas IAM permissivas. Elaboração de relatório técnico com recomendações de mitigação.</p>
+    </div>
 
-    <script>
-        // JS - Efeito Matrix
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
+    <div class="project-item">
+        <div class="project-header">
+            <h3>[03] Políticas de Firewall — Fortinet FortiGate</h3>
+            <div class="project-tags">
+                <span class="tag">Fortinet</span>
+                <span class="tag">Redes</span>
+            </div>
+        </div>
+        <p>Configuração, teste e documentação de políticas de firewall em dispositivos FortiGate. Criação de regras de filtragem por IP, porta e protocolo; implementação de VPN SSL e monitoramento via FortiAnalyzer.</p>
+    </div>
 
-        canvas.width = window.innerWidth;
+    <div class="project-item">
+        <div class="project-header">
+            <h3>[04] Implementação de Criptografia Simétrica e Assimétrica</h3>
+            <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Criptografia</span>
+            </div>
+        </div>
+        <p>Estudo prático e implementação em Python de algoritmos AES (simétrico) e RSA (assimétrico) para proteção de arquivos e comunicações. Inclui troca segura de chaves e validação de integridade com HMAC.</p>
+    </div>
+</div>
+
+<!-- ── CONTATOS ── -->
+<div class="container" id="contact">
+    <div class="section-title"><h2>05. Contato</h2></div>
+    <p style="margin-bottom: 28px; font-size: 0.9rem; color: #777;">
+        Aberto a oportunidades de estágio, emprego CLT ou projetos freelancer. Entre em contato!
+    </p>
+    <div class="contacts-grid">
+        <div class="contact-card">
+            <a href="mailto:eduardopereira124124@gmail.com">
+                <span class="contact-icon">✉</span>
+                E-mail
+            </a>
+        </div>
+        <div class="contact-card">
+            <a href="https://wa.me/5561981355607" target="_blank" rel="noopener">
+                <span class="contact-icon">💬</span>
+                WhatsApp
+            </a>
+        </div>
+        <div class="contact-card">
+            <a href="https://www.linkedin.com/in/eduardo-pereira-415412370" target="_blank" rel="noopener">
+                <span class="contact-icon">in</span>
+                LinkedIn
+            </a>
+        </div>
+        <div class="contact-card">
+            <a href="https://github.com/edx200" target="_blank" rel="noopener">
+                <span class="contact-icon">&lt;/&gt;</span>
+                GitHub
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Eduardo Pereira &nbsp;|&nbsp; Status: <span class="online">ONLINE</span> &nbsp;|&nbsp;
+    <a href="../Eduardo Pereira Correa .pdf" download>Download CV</a></p>
+</footer>
+
+<script>
+    // Matrix rain
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+        canvas.width  = window.innerWidth;
         canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-        const letters = "0123456789ABCDEFHIJKLMNOPQRSTUVWXYZ@#$%^&*";
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-        const drops = [];
+    const letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%^&*";
+    const fontSize = 14;
+    let drops = [];
 
-        for (let i = 0; i < columns; i++) {
-            drops[i] = 1;
-        }
+    function initDrops() {
+        const cols = Math.floor(canvas.width / fontSize);
+        drops = Array.from({ length: cols }, () => Math.random() * -50);
+    }
+    initDrops();
+    window.addEventListener('resize', initDrops);
 
-        function drawMatrix() {
-            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+    function drawMatrix() {
+        ctx.fillStyle = "rgba(0,0,0,0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#00ff41";
+        ctx.font = fontSize + "px monospace";
 
-            ctx.fillStyle = "#00ff41";
-            ctx.font = fontSize + "px arial";
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = letters.charAt(Math.floor(Math.random() * letters.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-
-        setInterval(drawMatrix, 50);
-
-        // Ajuste no redimensionamento
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+        drops.forEach((y, i) => {
+            const ch = letters[Math.floor(Math.random() * letters.length)];
+            ctx.fillText(ch, i * fontSize, y * fontSize);
+            if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            drops[i]++;
         });
+    }
+    setInterval(drawMatrix, 55);
 
-        // Efeito simples de digitação no Hero
-        const typingElement = document.getElementById('typing');
-        const textToType = "> Estabelecendo conexão segura... [OK]";
-        let index = 0;
-
-        function typeEffect() {
-            if (index < textToType.length) {
-                typingElement.innerHTML += textToType.charAt(index);
-                index++;
-                setTimeout(typeEffect, 100);
-            }
+    // Typing effect
+    const el   = document.getElementById('typing');
+    const text = "> Conexão segura estabelecida. Bem-vindo!";
+    let i = 0;
+    (function type() {
+        if (i < text.length) {
+            el.textContent += text[i++];
+            setTimeout(type, 60);
         }
-        typeEffect();
-    </script>
+    })();
+</script>
 </body>
 </html>
