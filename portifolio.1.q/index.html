@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eduardo Pereira | Cybersecurity & Infraestrutura</title>
-    <meta name="description" content="Portfólio de Eduardo Pereira — Analista de Cibersegurança em formação. Especialista em redes, Fortinet, AWS e segurança ofensiva. Disponível para estágio, CLT e freelancer.">
+    <title>Eduardo Pereira | Desenvolvedor Flutter & Firebase</title>
+    <meta name="description" content="Eduardo Pereira — Desenvolvedor Flutter com produto em produção e clientes reais. Firebase, BLoC, sistemas mobile. Disponível para estágio, CLT ou freelancer em Brasília-DF.">
 
     <style>
         :root {
-            --bg:       #0a0a0a;
-            --green:    #00ff41;
-            --green-dim:#008f11;
-            --text:     #d0d0d0;
-            --card-bg:  #111;
-            --border:   #222;
+            --bg:        #0c0c0c;
+            --bg2:       #111;
+            --green:     #00e676;
+            --green-dim: #00693a;
+            --green-faint: rgba(0, 230, 118, 0.08);
+            --text:      #c8c8c8;
+            --text-dim:  #666;
+            --border:    #1e1e1e;
+            --border-hi: #2a2a2a;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
 
         body {
@@ -25,127 +27,111 @@
             color: var(--text);
             font-family: 'Courier New', Courier, monospace;
             overflow-x: hidden;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
-        /* ── Matrix background ── */
+        /* ── Matrix ── */
         #matrix {
             position: fixed;
             top: 0; left: 0;
             z-index: -1;
-            opacity: 0.15;
+            opacity: 0.07;
         }
 
-        /* ── Header / Nav ── */
+        /* ── Nav ── */
         header {
             width: 100%;
-            background: rgba(0,0,0,0.92);
-            border-bottom: 1px solid var(--green-dim);
+            background: rgba(12,12,12,0.95);
+            border-bottom: 1px solid var(--border-hi);
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(4px);
         }
 
         nav {
+            max-width: 1000px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 8%;
+            padding: 14px 24px;
             gap: 12px;
         }
 
         .logo {
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: bold;
             color: var(--green);
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             white-space: nowrap;
         }
+
+        .logo span { color: #555; }
 
         nav ul {
             display: flex;
             flex-wrap: wrap;
             list-style: none;
-            gap: 4px;
+            gap: 2px;
             justify-content: flex-end;
         }
 
         nav ul li a {
-            color: #aaa;
+            color: var(--text-dim);
             text-decoration: none;
-            padding: 5px 10px;
-            font-size: 0.82rem;
-            border: 1px solid transparent;
-            transition: 0.2s;
+            padding: 5px 11px;
+            font-size: 0.8rem;
+            transition: color 0.2s;
             white-space: nowrap;
         }
 
-        nav ul li a:hover {
-            color: var(--green);
-            border-color: var(--green-dim);
+        nav ul li a:hover { color: var(--green); }
+
+        /* ── Utility ── */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 80px 24px;
         }
 
-        /* ── Hero ── */
-        #hero {
-            min-height: 80vh;
+        .section-title {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 60px 20px 40px;
+            gap: 16px;
+            margin-bottom: 40px;
         }
 
-        .hero-pre {
-            color: var(--green-dim);
-            font-size: 0.9rem;
-            margin-bottom: 14px;
-        }
-
-        h1.glitch {
+        .section-title h2 {
             color: var(--green);
-            font-size: 2.8rem;
+            font-size: 0.82rem;
+            text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 16px;
-            text-shadow: 0 0 20px rgba(0,255,65,0.3);
+            white-space: nowrap;
         }
 
-        .hero-badges {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 20px;
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-hi);
         }
 
-        .badge {
-            background: rgba(0,143,17,0.15);
+        .tag {
+            display: inline-block;
+            background: var(--green-faint);
             border: 1px solid var(--green-dim);
             color: var(--green);
-            padding: 4px 12px;
-            font-size: 0.78rem;
+            padding: 3px 10px;
+            font-size: 0.72rem;
             border-radius: 2px;
         }
 
-        .hero-objective {
-            max-width: 600px;
-            color: #888;
-            font-size: 0.95rem;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
         .btn {
-            padding: 12px 24px;
+            display: inline-block;
+            padding: 12px 26px;
             font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: bold;
             text-decoration: none;
             cursor: pointer;
@@ -159,9 +145,7 @@
             color: #000;
         }
 
-        .btn-primary:hover, .btn-primary:active {
-            box-shadow: 0 0 20px rgba(0,255,65,0.5);
-        }
+        .btn-primary:hover { box-shadow: 0 0 22px rgba(0,230,118,0.4); }
 
         .btn-outline {
             background: transparent;
@@ -169,237 +153,325 @@
             border: 1px solid var(--green-dim);
         }
 
-        .btn-outline:hover, .btn-outline:active {
-            background: rgba(0,143,17,0.15);
-        }
+        .btn-outline:hover { background: var(--green-faint); }
 
-        .terminal-loader {
-            color: #555;
-            font-size: 0.9rem;
-            margin-top: 30px;
-        }
-
-        /* ── Sections ── */
-        .container {
+        /* ── Hero ── */
+        #hero {
+            min-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 80px 24px 60px;
             max-width: 960px;
             margin: 0 auto;
-            padding: 70px 24px;
         }
 
-        .section-title {
+        .hero-pre {
+            color: var(--green-dim);
+            font-size: 0.85rem;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #f0f0f0;
+            letter-spacing: 1px;
+            line-height: 1.15;
+            margin-bottom: 6px;
+        }
+
+        .hero-role {
+            color: var(--green);
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+
+        .hero-desc {
+            max-width: 560px;
+            color: var(--text-dim);
+            font-size: 0.92rem;
+            line-height: 1.85;
+            margin-bottom: 28px;
+        }
+
+        .hero-desc strong { color: var(--text); }
+
+        .hero-stack {
             display: flex;
-            align-items: center;
-            gap: 14px;
+            flex-wrap: wrap;
+            gap: 8px;
             margin-bottom: 36px;
         }
 
-        .section-title h2 {
+        .hero-cta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .hero-typing {
+            color: #444;
+            font-size: 0.82rem;
+            margin-top: 40px;
+        }
+
+        /* ── ComandaApp ── */
+        .case-header {
+            background: var(--bg2);
+            border: 1px solid var(--border-hi);
+            border-left: 3px solid var(--green);
+            padding: 28px 28px 24px;
+            margin-bottom: 24px;
+        }
+
+        .case-eyebrow {
             color: var(--green);
-            font-size: 1.1rem;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .case-header h3 {
+            color: #f0f0f0;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .case-header .client-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0,230,118,0.12);
+            border: 1px solid var(--green);
+            color: var(--green);
+            padding: 5px 14px;
+            font-size: 0.78rem;
+            border-radius: 2px;
+            margin-bottom: 16px;
+        }
+
+        .case-header p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            line-height: 1.8;
+        }
+
+        .case-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .module-card {
+            background: var(--bg2);
+            border: 1px solid var(--border-hi);
+            padding: 20px;
+            transition: border-color 0.2s;
+        }
+
+        .module-card:hover { border-color: var(--green-dim); }
+
+        .module-card h4 {
+            color: var(--green);
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .module-card p {
+            font-size: 0.83rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+        }
+
+        /* ── Security writeup ── */
+        .writeup {
+            background: var(--bg2);
+            border: 1px solid var(--border-hi);
+            border-left: 3px solid #ff6b35;
+            padding: 28px;
+        }
+
+        .writeup-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .writeup h3 {
+            color: #f0f0f0;
+            font-size: 0.95rem;
+        }
+
+        .severity {
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            border: 1px solid;
+            border-radius: 2px;
+        }
+
+        .severity-high {
+            color: #ff6b35;
+            border-color: #ff6b35;
+            background: rgba(255,107,53,0.08);
+        }
+
+        .status-fixed {
+            color: var(--green);
+            border-color: var(--green-dim);
+            background: var(--green-faint);
+        }
+
+        .writeup-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .writeup-col h4 {
+            color: var(--text-dim);
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            white-space: nowrap;
+            margin-bottom: 8px;
         }
 
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
+        .writeup-col p {
+            font-size: 0.85rem;
+            color: var(--text);
+            line-height: 1.75;
         }
 
-        /* ── Sobre ── */
+        .writeup-col p strong { color: var(--green); }
+
+        /* ── Skills ── */
+        .skills-block { margin-bottom: 32px; }
+
+        .skills-block h3 {
+            color: var(--text-dim);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 8px;
+        }
+
+        .skill-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            padding: 13px 10px;
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            transition: 0.2s;
+            cursor: default;
+        }
+
+        .skill-card:hover {
+            border-color: var(--green-dim);
+            color: var(--green);
+        }
+
+        /* ── Certs ── */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+        }
+
+        .cert-card {
+            background: var(--bg2);
+            border: 1px solid var(--border-hi);
+            border-left: 3px solid var(--green-dim);
+            padding: 20px;
+        }
+
+        .cert-card h3 {
+            color: var(--text);
+            font-size: 0.88rem;
+            margin-bottom: 6px;
+        }
+
+        .cert-card .issuer {
+            color: var(--text-dim);
+            font-size: 0.75rem;
+        }
+
+        /* ── Sobre grid ── */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
         }
 
-        .about-text p {
-            margin-bottom: 14px;
-            font-size: 0.95rem;
-            color: var(--text);
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
         }
 
-        .about-text strong { color: var(--green); }
-
-        .about-info {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-left: 3px solid var(--green);
-            padding: 24px;
+        /* ── Contato ── */
+        .contact-intro {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 28px;
+            max-width: 500px;
+            line-height: 1.8;
         }
 
-        .info-item {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 16px;
-            font-size: 0.88rem;
-        }
-
-        .info-item:last-child { margin-bottom: 0; }
-
-        .info-label {
-            color: var(--green-dim);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 3px;
-        }
-
-        .info-value { color: var(--text); }
-
-        .open-to {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 4px;
-        }
-
-        .tag {
-            background: rgba(0,143,17,0.2);
-            border: 1px solid var(--green-dim);
-            color: var(--green);
-            padding: 3px 10px;
-            font-size: 0.75rem;
-            border-radius: 2px;
-        }
-
-        /* ── Skills ── */
-        .skills-category { margin-bottom: 30px; }
-
-        .skills-category h3 {
-            color: var(--green-dim);
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 14px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 10px;
-        }
-
-        .skill-card {
-            background: var(--card-bg);
-            padding: 16px 12px;
-            border: 1px solid var(--border);
-            text-align: center;
-            font-size: 0.85rem;
-            transition: 0.25s ease;
-            cursor: default;
-        }
-
-        .skill-card:hover {
-            border-color: var(--green);
-            box-shadow: 0 0 12px rgba(0,255,65,0.15);
-            transform: translateY(-3px);
-            color: var(--green);
-        }
-
-        /* ── Certificações ── */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-        }
-
-        .cert-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-left: 3px solid var(--green);
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .cert-card h3 {
-            color: var(--green);
-            font-size: 0.92rem;
-        }
-
-        .cert-card .issuer {
-            font-size: 0.78rem;
-            color: #666;
-        }
-
-        /* ── Projetos ── */
-        .project-item {
-            background: rgba(17,17,17,0.9);
-            padding: 26px;
-            margin-bottom: 20px;
-            border: 1px solid var(--border);
-            border-left: 3px solid var(--green);
-            transition: 0.2s;
-        }
-
-        .project-item:hover {
-            border-left-color: var(--green);
-            box-shadow: 0 0 12px rgba(0,255,65,0.08);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-
-        .project-item h3 {
-            color: var(--green);
-            font-size: 0.95rem;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-
-        .project-item p {
-            font-size: 0.88rem;
-            color: #aaa;
-            line-height: 1.7;
-        }
-
-        /* ── Contatos ── */
         .contacts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 14px;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 12px;
         }
 
         .contact-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
+            background: var(--bg2);
+            border: 1px solid var(--border-hi);
             text-align: center;
-            transition: 0.25s;
+            transition: 0.2s;
         }
 
         .contact-card a {
             display: block;
-            padding: 22px 16px;
-            color: var(--text);
+            padding: 24px 16px;
+            color: var(--text-dim);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        .contact-card .contact-icon {
+        .contact-icon {
             display: block;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 8px;
             color: var(--green);
         }
 
         .contact-card:hover {
-            border-color: var(--green);
-            box-shadow: 0 0 14px rgba(0,255,65,0.15);
-            transform: translateY(-3px);
+            border-color: var(--green-dim);
+            transform: translateY(-2px);
         }
 
         .contact-card:hover a { color: var(--green); }
@@ -407,35 +479,40 @@
         /* ── Footer ── */
         footer {
             text-align: center;
-            padding: 36px 20px;
+            padding: 32px 20px;
             border-top: 1px solid var(--border);
-            font-size: 0.78rem;
-            color: #444;
+            font-size: 0.75rem;
+            color: #333;
         }
 
         footer a { color: var(--green-dim); text-decoration: none; }
 
-        footer span.online { color: var(--green); }
-
-        /* ── Responsividade ── */
+        /* ── Responsive ── */
         @media (max-width: 768px) {
-            nav { padding: 12px 5%; }
+            nav { padding: 12px 16px; }
 
             nav ul {
                 justify-content: center;
-                gap: 4px;
+                gap: 2px;
             }
 
-            nav ul li a {
-                font-size: 0.75rem;
-                padding: 4px 8px;
-            }
+            nav ul li a { font-size: 0.73rem; padding: 4px 7px; }
 
-            h1.glitch { font-size: 1.9rem; letter-spacing: 1px; }
+            h1 { font-size: 2rem; }
+            .hero-role { font-size: 0.95rem; }
 
-            .hero-objective { font-size: 0.88rem; }
+            #hero { padding: 60px 16px 40px; align-items: center; text-align: center; }
 
-            .about-grid { grid-template-columns: 1fr; }
+            .hero-stack { justify-content: center; }
+            .hero-cta { justify-content: center; }
+
+            .case-header { padding: 20px; }
+            .case-header h3 { font-size: 1.15rem; }
+
+            .modules-grid { grid-template-columns: 1fr; }
+
+            .writeup { padding: 20px; }
+            .writeup-body { grid-template-columns: 1fr; gap: 16px; }
 
             .skills-grid { grid-template-columns: repeat(2, 1fr); }
 
@@ -443,20 +520,12 @@
 
             .contacts-grid { grid-template-columns: repeat(2, 1fr); }
 
-            .container { padding: 50px 16px; }
-
-            .project-item { padding: 20px 16px; }
-
-            .hero-cta { gap: 10px; }
-
-            .btn { padding: 11px 18px; font-size: 0.8rem; }
+            .container { padding: 56px 16px; }
         }
 
         @media (max-width: 400px) {
-            h1.glitch { font-size: 1.5rem; }
-            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+            h1 { font-size: 1.7rem; }
             .contacts-grid { grid-template-columns: repeat(2, 1fr); }
-            .badge { font-size: 0.7rem; padding: 3px 8px; }
         }
     </style>
 </head>
@@ -466,12 +535,12 @@
 
 <header>
     <nav>
-        <div class="logo">EDU@SEC<span style="color:#fff">_</span></div>
+        <div class="logo">Eduardo Pereira<span> _</span></div>
         <ul>
             <li><a href="#about">Sobre</a></li>
+            <li><a href="#comanda">ComandaApp</a></li>
+            <li><a href="#security">Segurança</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#certs">Certs</a></li>
-            <li><a href="#projects">Projetos</a></li>
             <li><a href="#contact">Contato</a></li>
         </ul>
     </nav>
@@ -479,67 +548,72 @@
 
 <!-- ── HERO ── -->
 <section id="hero">
-    <p class="hero-pre">> iniciando sistema...</p>
-    <h1 class="glitch">EDUARDO PEREIRA</h1>
+    <p class="hero-pre">// desenvolvedor · brasília-df</p>
+    <h1>Eduardo Pereira</h1>
+    <p class="hero-role">Desenvolvedor Flutter &amp; Firebase</p>
 
-    <div class="hero-badges">
-        <span class="badge">Cybersecurity</span>
-        <span class="badge">Redes & Infraestrutura</span>
-        <span class="badge">Fortinet</span>
-        <span class="badge">AWS Cloud</span>
-        <span class="badge">Python</span>
-    </div>
-
-    <p class="hero-objective">
-        Analista de Cibersegurança em formação, baseado em Brasília–DF.<br>
-        Focado em segurança ofensiva, defesa de redes e infraestrutura cloud.<br>
-        Disponível para <strong style="color:var(--green)">estágio</strong>, <strong style="color:var(--green)">CLT</strong> ou <strong style="color:var(--green)">freelancer</strong>.
+    <p class="hero-desc">
+        Construo e mantenho <strong>sistemas mobile em produção</strong> com clientes reais.<br>
+        Meu principal produto — o ComandaApp — opera em restaurantes ativos,<br>
+        processando pedidos, emitindo notas fiscais e gerenciando equipes.
     </p>
 
-    <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">[ ENTRAR EM CONTATO ]</a>
-        <a href="../Eduardo Pereira Correa .pdf" download class="btn btn-outline">[ BAIXAR CV ]</a>
+    <div class="hero-stack">
+        <span class="tag">Flutter / Dart</span>
+        <span class="tag">BLoC</span>
+        <span class="tag">Firebase</span>
+        <span class="tag">Firestore</span>
+        <span class="tag">Cloud Functions</span>
+        <span class="tag">Segurança da Informação</span>
     </div>
 
-    <div class="terminal-loader" id="typing"></div>
+    <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">[ Entrar em contato ]</a>
+        <a href="../Eduardo Pereira Correa .pdf" download class="btn btn-outline">[ Baixar CV ]</a>
+    </div>
+
+    <p class="hero-typing" id="typing"></p>
 </section>
 
 <!-- ── SOBRE ── -->
 <div class="container" id="about">
-    <div class="section-title"><h2>01. Sobre Mim</h2></div>
+    <div class="section-title"><h2>01. Sobre</h2></div>
+
     <div class="about-grid">
-        <div class="about-text">
-            <p>
-                Sou estudante de <strong>Tecnologia da Informação</strong> no Senac DF (3º semestre),
-                apaixonado por segurança da informação e infraestrutura de redes.
+        <div>
+            <p style="margin-bottom:14px; font-size:0.92rem;">
+                Tenho 19 anos, sou de Brasília-DF e estou no 3º semestre de
+                <strong style="color:var(--text)">Segurança da Informação</strong> no Senac DF.
             </p>
-            <p>
-                Tenho experiência prática com <strong>pentest</strong>, configuração de
-                <strong>firewalls Fortinet</strong>, análise de tráfego com Wireshark,
-                e fundamentos de <strong>computação em nuvem AWS</strong>.
+            <p style="margin-bottom:14px; font-size:0.92rem;">
+                Desenvolvo aplicações mobile com <strong style="color:var(--text)">Flutter/Dart</strong>
+                usando arquitetura <strong style="color:var(--text)">BLoC</strong> e backend
+                <strong style="color:var(--text)">Firebase/Firestore</strong>. Tenho um produto
+                real em produção com dois clientes pagantes.
             </p>
-            <p>
-                Meu objetivo é ingressar no mercado de tecnologia contribuindo com a
-                <strong>segurança e disponibilidade</strong> dos sistemas da empresa,
-                enquanto continuo me desenvolvendo como profissional de segurança ofensiva e defensiva.
+            <p style="font-size:0.92rem;">
+                Minha formação em segurança me torna um desenvolvedor que pensa em
+                proteção de dados, controle de acesso e resiliência desde o início do projeto —
+                não como correção posterior. Atualmente me preparando para a certificação
+                Fortinet Certified Associate (FCA).
             </p>
         </div>
-        <div class="about-info">
-            <div class="info-item">
-                <span class="info-label">Localização</span>
-                <span class="info-value">Brasília, DF — Brasil</span>
+        <div style="background:var(--bg2); border:1px solid var(--border-hi); border-left:3px solid var(--green); padding:24px;">
+            <div style="margin-bottom:16px; font-size:0.85rem;">
+                <div style="color:var(--green-dim); font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Localização</div>
+                Brasília, DF — Brasil
             </div>
-            <div class="info-item">
-                <span class="info-label">Formação</span>
-                <span class="info-value">Tecnologia da Informação — Senac DF (3º sem.)</span>
+            <div style="margin-bottom:16px; font-size:0.85rem;">
+                <div style="color:var(--green-dim); font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Formação</div>
+                Segurança da Informação — Senac DF (3º sem.)
             </div>
-            <div class="info-item">
-                <span class="info-label">Certificações</span>
-                <span class="info-value">AWS Cloud Practitioner · Intro to Cybersecurity</span>
+            <div style="margin-bottom:16px; font-size:0.85rem;">
+                <div style="color:var(--green-dim); font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Produto em produção</div>
+                ComandaApp — 2 clientes ativos
             </div>
-            <div class="info-item">
-                <span class="info-label">Disponível para</span>
-                <div class="open-to">
+            <div style="font-size:0.85rem;">
+                <div style="color:var(--green-dim); font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Disponível para</div>
+                <div style="display:flex; flex-wrap:wrap; gap:6px;">
                     <span class="tag">Estágio</span>
                     <span class="tag">CLT</span>
                     <span class="tag">Freelancer</span>
@@ -550,120 +624,184 @@
     </div>
 </div>
 
-<!-- ── SKILLS ── -->
-<div class="container" id="skills">
-    <div class="section-title"><h2>02. Ferramentas & Skills</h2></div>
+<!-- ── COMANDAAPP ── -->
+<div class="container" id="comanda">
+    <div class="section-title"><h2>02. Case Principal — ComandaApp</h2></div>
 
-    <div class="skills-category">
-        <h3>// Segurança Ofensiva</h3>
-        <div class="skills-grid">
-            <div class="skill-card">Kali Linux</div>
-            <div class="skill-card">Nmap</div>
-            <div class="skill-card">Medusa</div>
-            <div class="skill-card">Metasploit</div>
-            <div class="skill-card">Análise de Malware</div>
-            <div class="skill-card">Wireshark / PCAP</div>
+    <div class="case-header">
+        <p class="case-eyebrow">// produto em produção</p>
+        <h3>ComandaApp</h3>
+        <div class="client-badge">
+            ● 2 clientes pagantes · em operação ativa
+        </div>
+        <p>
+            Sistema completo de gestão para restaurantes — PDV, controle de mesas,
+            fila de cozinha em tempo real e emissão de NFC-e. Desenvolvido do zero
+            em Flutter com backend Firebase, rodando em produção em dois estabelecimentos
+            na região de Brasília.
+        </p>
+        <div class="case-stack">
+            <span class="tag">Flutter / Dart</span>
+            <span class="tag">BLoC</span>
+            <span class="tag">Firebase Auth</span>
+            <span class="tag">Firestore</span>
+            <span class="tag">Cloud Functions</span>
+            <span class="tag">Focus NFe (NFC-e)</span>
+            <span class="tag">PDF Generation</span>
         </div>
     </div>
 
-    <div class="skills-category">
-        <h3>// Infraestrutura & Redes</h3>
-        <div class="skills-grid">
-            <div class="skill-card">Fortinet FortiGate</div>
-            <div class="skill-card">FortiAnalyzer</div>
-            <div class="skill-card">TCP/IP</div>
-            <div class="skill-card">VPN / Firewall</div>
-            <div class="skill-card">AWS Cloud</div>
-            <div class="skill-card">Veracrypt</div>
+    <div class="modules-grid">
+        <div class="module-card">
+            <h4>Gestão de Mesas &amp; Delivery</h4>
+            <p>50 mesas e 20 slots de delivery gerenciados em tempo real. Status de ocupação, vinculação de pedidos e fechamento de conta por mesa.</p>
         </div>
-    </div>
-
-    <div class="skills-category">
-        <h3>// Desenvolvimento & Outros</h3>
-        <div class="skills-grid">
-            <div class="skill-card">Python</div>
-            <div class="skill-card">Bash Script</div>
-            <div class="skill-card">Git / GitHub</div>
-            <div class="skill-card">Banco de Dados</div>
-            <div class="skill-card">Linux / Windows</div>
-            <div class="skill-card">Trello / Agile</div>
+        <div class="module-card">
+            <h4>KDS — Fila de Cozinha</h4>
+            <p>Kitchen Display System com streams do Firestore. Pedidos chegam em tempo real sem polling, com priorização e confirmação de preparo.</p>
+        </div>
+        <div class="module-card">
+            <h4>PDV &amp; Relatórios</h4>
+            <p>Ponto de venda com fluxo completo de pedido. Geração de relatórios diários e por período em PDF diretamente no dispositivo.</p>
+        </div>
+        <div class="module-card">
+            <h4>Emissão de NFC-e</h4>
+            <p>Integração com Focus NFe para emissão de Nota Fiscal de Consumidor Eletrônica. Tratamento de erros da SEFAZ e reenvio automático.</p>
+        </div>
+        <div class="module-card">
+            <h4>Modo Offline</h4>
+            <p>Cache local via Firestore persistence. O app opera sem internet e sincroniza automaticamente ao reconectar, sem perda de pedidos.</p>
+        </div>
+        <div class="module-card">
+            <h4>Controle de Acesso por Papel</h4>
+            <p>Perfis distintos para garçom, cozinha e gerente. Cada papel acessa somente as rotas e operações autorizadas, validadas no backend.</p>
+        </div>
+        <div class="module-card">
+            <h4>Painel Admin</h4>
+            <p>Gestão de cardápio, equipe e configurações do estabelecimento. Visão consolidada de vendas, mesas ativas e pedidos em aberto.</p>
         </div>
     </div>
 </div>
 
-<!-- ── CERTIFICAÇÕES ── -->
+<!-- ── SEGURANÇA APLICADA ── -->
+<div class="container" id="security">
+    <div class="section-title"><h2>03. Segurança Aplicada</h2></div>
+
+    <p style="font-size:0.88rem; color:var(--text-dim); margin-bottom:28px; max-width:680px; line-height:1.85;">
+        Durante o desenvolvimento do ComandaApp, identifiquei e corrigi uma vulnerabilidade
+        crítica no próprio produto. O writeup abaixo documenta a falha, o impacto e a
+        correção — sem código explorável. Registro aqui como parte da engenharia responsável,
+        não como demonstração ofensiva.
+    </p>
+
+    <div class="writeup">
+        <div class="writeup-header">
+            <h3>Escalação de Privilégio via Regras do Firestore</h3>
+            <span class="severity severity-high">HIGH</span>
+            <span class="severity status-fixed">✓ Corrigido em produção</span>
+        </div>
+
+        <div class="writeup-body">
+            <div class="writeup-col">
+                <h4>Categoria</h4>
+                <p>
+                    <strong>Broken Access Control</strong> — Privilege Escalation
+                    (OWASP A01:2021).<br><br>
+                    Usuário com papel de <em>garçom</em> conseguia elevar seu próprio
+                    campo <code>role</code> no Firestore para <em>admin</em> sem
+                    autorização, porque as Security Rules confiavam no dado enviado
+                    pelo cliente sem validação server-side.
+                </p>
+            </div>
+            <div class="writeup-col">
+                <h4>Impacto</h4>
+                <p>
+                    Um garçom mal-intencionado poderia assumir controle total do
+                    painel admin: alterar cardápio, visualizar relatórios financeiros
+                    completos, remover ou rebaixar outros usuários e acessar dados
+                    de todos os pedidos e clientes do estabelecimento.
+                </p>
+            </div>
+            <div class="writeup-col">
+                <h4>Correção</h4>
+                <p>
+                    Rules reescritas para validar que nenhum documento pode
+                    auto-modificar seu campo <code>role</code>. Elevação de papel
+                    passou a exigir <strong>token admin via Firebase Auth Custom Claims</strong>,
+                    gerado exclusivamente por Cloud Function com verificação server-side.
+                    Dados de papel no Firestore passaram a ser somente leitura para o
+                    próprio usuário.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── SKILLS ── -->
+<div class="container" id="skills">
+    <div class="section-title"><h2>04. Skills</h2></div>
+
+    <div class="skills-block">
+        <h3>// Desenvolvimento Mobile</h3>
+        <div class="skills-grid">
+            <div class="skill-card">Flutter</div>
+            <div class="skill-card">Dart</div>
+            <div class="skill-card">BLoC / Cubit</div>
+            <div class="skill-card">Firebase Auth</div>
+            <div class="skill-card">Firestore</div>
+            <div class="skill-card">Cloud Functions</div>
+            <div class="skill-card">Git / GitHub</div>
+            <div class="skill-card">REST APIs</div>
+        </div>
+    </div>
+
+    <div class="skills-block">
+        <h3>// Infraestrutura &amp; Cloud</h3>
+        <div class="skills-grid">
+            <div class="skill-card">AWS Cloud</div>
+            <div class="skill-card">Linux</div>
+            <div class="skill-card">Bash Script</div>
+            <div class="skill-card">Banco de Dados</div>
+            <div class="skill-card">TCP/IP</div>
+            <div class="skill-card">FortiGate (config. real)</div>
+            <div class="skill-card">FortiAP (config. real)</div>
+        </div>
+    </div>
+
+    <div class="skills-block">
+        <h3>// Segurança — Diferencial</h3>
+        <div class="skills-grid">
+            <div class="skill-card">Firestore Rules</div>
+            <div class="skill-card">Auth &amp; IAM</div>
+            <div class="skill-card">Kali Linux</div>
+            <div class="skill-card">Wireshark</div>
+            <div class="skill-card">Nmap</div>
+            <div class="skill-card">Criptografia</div>
+        </div>
+    </div>
+</div>
+
+<!-- ── CERTS ── -->
 <div class="container" id="certs">
-    <div class="section-title"><h2>03. Certificações</h2></div>
+    <div class="section-title"><h2>05. Certificações</h2></div>
     <div class="cert-grid">
         <div class="cert-card">
             <h3>AWS Certified Cloud Practitioner</h3>
-            <span class="issuer">Amazon Web Services — 2025</span>
+            <span class="issuer">Amazon Web Services · 2025</span>
         </div>
         <div class="cert-card">
             <h3>Introduction to Cybersecurity</h3>
-            <span class="issuer">Cisco Networking Academy — 2025</span>
-        </div>
-        <div class="cert-card">
-            <h3>Fortinet Certified Associate</h3>
-            <span class="issuer">Fortinet — FortiGate / FortiAnalyzer</span>
+            <span class="issuer">Cisco Networking Academy · 2025</span>
         </div>
     </div>
 </div>
 
-<!-- ── PROJETOS ── -->
-<div class="container" id="projects">
-    <div class="section-title"><h2>04. Projetos</h2></div>
-
-    <div class="project-item">
-        <div class="project-header">
-            <h3>[01] Scanner de Vulnerabilidades Web</h3>
-            <div class="project-tags">
-                <span class="tag">Python</span>
-                <span class="tag">Nmap</span>
-            </div>
-        </div>
-        <p>Desenvolvimento de script em Python integrado ao Nmap para descoberta automatizada de diretórios expostos, portas abertas e falhas de configuração em servidores Apache. Identifica serviços vulneráveis e gera relatório de saída estruturado.</p>
-    </div>
-
-    <div class="project-item">
-        <div class="project-header">
-            <h3>[02] Pentest: Infraestrutura Cloud</h3>
-            <div class="project-tags">
-                <span class="tag">AWS</span>
-                <span class="tag">Pentest</span>
-            </div>
-        </div>
-        <p>Simulação completa de ataque e defesa em ambiente cloud AWS, com foco em escalação de privilégios, identificação de misconfigurações em buckets S3 e análise de políticas IAM permissivas. Elaboração de relatório técnico com recomendações de mitigação.</p>
-    </div>
-
-    <div class="project-item">
-        <div class="project-header">
-            <h3>[03] Políticas de Firewall — Fortinet FortiGate</h3>
-            <div class="project-tags">
-                <span class="tag">Fortinet</span>
-                <span class="tag">Redes</span>
-            </div>
-        </div>
-        <p>Configuração, teste e documentação de políticas de firewall em dispositivos FortiGate. Criação de regras de filtragem por IP, porta e protocolo; implementação de VPN SSL e monitoramento via FortiAnalyzer.</p>
-    </div>
-
-    <div class="project-item">
-        <div class="project-header">
-            <h3>[04] Implementação de Criptografia Simétrica e Assimétrica</h3>
-            <div class="project-tags">
-                <span class="tag">Python</span>
-                <span class="tag">Criptografia</span>
-            </div>
-        </div>
-        <p>Estudo prático e implementação em Python de algoritmos AES (simétrico) e RSA (assimétrico) para proteção de arquivos e comunicações. Inclui troca segura de chaves e validação de integridade com HMAC.</p>
-    </div>
-</div>
-
-<!-- ── CONTATOS ── -->
+<!-- ── CONTATO ── -->
 <div class="container" id="contact">
-    <div class="section-title"><h2>05. Contato</h2></div>
-    <p style="margin-bottom: 28px; font-size: 0.9rem; color: #777;">
-        Aberto a oportunidades de estágio, emprego CLT ou projetos freelancer. Entre em contato!
+    <div class="section-title"><h2>06. Contato</h2></div>
+    <p class="contact-intro">
+        Aberto a estágio, CLT ou projetos freelancer.<br>
+        Prefiro uma conversa direta — me manda uma mensagem.
     </p>
     <div class="contacts-grid">
         <div class="contact-card">
@@ -694,14 +832,14 @@
 </div>
 
 <footer>
-    <p>© 2026 Eduardo Pereira &nbsp;|&nbsp; Status: <span class="online">ONLINE</span> &nbsp;|&nbsp;
+    <p>© 2026 Eduardo Pereira &nbsp;·&nbsp;
     <a href="../Eduardo Pereira Correa .pdf" download>Download CV</a></p>
 </footer>
 
 <script>
     // Matrix rain
     const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
+    const ctx    = canvas.getContext('2d');
 
     function resizeCanvas() {
         canvas.width  = window.innerWidth;
@@ -710,42 +848,41 @@
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%^&*";
-    const fontSize = 14;
-    let drops = [];
+    const chars   = "01アウエイオカキクケコサシスセソ";
+    const fSize   = 13;
+    let drops     = [];
 
     function initDrops() {
-        const cols = Math.floor(canvas.width / fontSize);
-        drops = Array.from({ length: cols }, () => Math.random() * -50);
+        drops = Array.from(
+            { length: Math.floor(canvas.width / fSize) },
+            () => Math.random() * -80
+        );
     }
     initDrops();
     window.addEventListener('resize', initDrops);
 
     function drawMatrix() {
-        ctx.fillStyle = "rgba(0,0,0,0.05)";
+        ctx.fillStyle = "rgba(0,0,0,0.06)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "#00ff41";
-        ctx.font = fontSize + "px monospace";
-
+        ctx.fillStyle = "#00e676";
+        ctx.font      = fSize + "px monospace";
         drops.forEach((y, i) => {
-            const ch = letters[Math.floor(Math.random() * letters.length)];
-            ctx.fillText(ch, i * fontSize, y * fontSize);
-            if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * fSize, y * fSize);
+            if (y * fSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
             drops[i]++;
         });
     }
-    setInterval(drawMatrix, 55);
+    setInterval(drawMatrix, 60);
 
     // Typing effect
     const el   = document.getElementById('typing');
-    const text = "> Conexão segura estabelecida. Bem-vindo!";
-    let i = 0;
+    const line = '> sistemas em produção · clientes reais · disponível para contato';
+    let   idx  = 0;
     (function type() {
-        if (i < text.length) {
-            el.textContent += text[i++];
-            setTimeout(type, 60);
-        }
+        if (idx < line.length) { el.textContent += line[idx++]; setTimeout(type, 45); }
     })();
+
 </script>
+
 </body>
 </html>
