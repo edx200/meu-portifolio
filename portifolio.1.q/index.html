@@ -299,6 +299,54 @@
             line-height: 1.7;
         }
 
+        /* ── Experiência ── */
+        .exp-item {
+            border: 1px solid var(--border-hi);
+            border-left: 3px solid var(--green-dim);
+            background: var(--bg2);
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 14px;
+        }
+
+        .exp-role {
+            color: var(--text);
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .exp-company {
+            color: var(--text-dim);
+            font-size: 0.78rem;
+        }
+
+        .exp-period {
+            color: var(--green);
+            font-size: 0.75rem;
+            white-space: nowrap;
+            padding: 3px 10px;
+            border: 1px solid var(--green-dim);
+            background: var(--green-faint);
+            border-radius: 2px;
+        }
+
+        .exp-list {
+            padding-left: 18px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.85;
+        }
+
+        .exp-list li { margin-bottom: 4px; }
+
         /* ── Problema / Solução ── */
         .prob-title {
             font-size: 0.72rem;
@@ -603,6 +651,7 @@
         <div class="logo">Eduardo Pereira<span> _</span></div>
         <ul>
             <li><a href="#about">Sobre</a></li>
+            <li><a href="#experience">Experiência</a></li>
             <li><a href="#comanda">ComandaApp</a></li>
             <li><a href="#security">Segurança</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -634,7 +683,7 @@
 
     <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">[ Entrar em contato ]</a>
-        <a href="../Eduardo Pereira Correa .pdf" download class="btn btn-outline">[ Baixar CV ]</a>
+        <a href="../Curriculo_Eduardo_Pereira_Vendas.pdf" download class="btn btn-outline">[ Baixar CV ]</a>
     </div>
 
     <p class="hero-typing" id="typing"></p>
@@ -676,6 +725,10 @@
                 <div style="color:var(--green-dim); font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Produto em produção</div>
                 ComandaApp — 2 clientes ativos
             </div>
+            <div style="margin-bottom:16px; font-size:0.85rem;">
+                <div style="color:var(--green-dim); font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Idiomas</div>
+                Português — nativo &nbsp;·&nbsp; Inglês — básico
+            </div>
             <div style="font-size:0.85rem;">
                 <div style="color:var(--green-dim); font-size:0.7rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Disponível para</div>
                 <div style="display:flex; flex-wrap:wrap; gap:6px;">
@@ -689,9 +742,44 @@
     </div>
 </div>
 
+<!-- ── EXPERIÊNCIA ── -->
+<div class="container" id="experience">
+    <div class="section-title"><h2>02. Experiência</h2></div>
+
+    <div class="exp-item">
+        <div class="exp-header">
+            <div>
+                <h3 class="exp-role">Desenvolvedor de Software — Autônomo</h3>
+                <p class="exp-company">Soluções para restaurantes · Brasília, DF</p>
+            </div>
+            <span class="exp-period">2025 – atual</span>
+        </div>
+        <ul class="exp-list">
+            <li>Desenvolveu e comercializou o ComandaApp — sistema de gestão para restaurantes (PDV, KDS, NFC-e) — com dois clientes pagantes em operação ativa.</li>
+            <li>Conduziu o ciclo completo: desenvolvimento, apresentação da solução e negociação comercial.</li>
+            <li>Desenvolveu o site do Restaurante Peixe Vivo (<a href="https://peixevivosite.com.br" target="_blank" rel="noopener" style="color:var(--green); text-decoration:none;">peixevivosite.com.br</a>), reforçando a presença digital do cliente.</li>
+            <li>Resultado relatado pelos clientes: atendimento mais ágil, melhor organização de pedidos e retorno positivo no faturamento.</li>
+        </ul>
+    </div>
+
+    <div class="exp-item">
+        <div class="exp-header">
+            <div>
+                <h3 class="exp-role">Microempreendedor (MEI) — Varejo</h3>
+                <p class="exp-company">Moda masculina · Brasília, DF</p>
+            </div>
+            <span class="exp-period">02/2024 – 11/2024</span>
+        </div>
+        <ul class="exp-list">
+            <li>Operação autônoma de negócio de varejo: gestão de estoque, vendas, negociação com fornecedores e atendimento ao cliente.</li>
+            <li>Experiência direta com empreendedorismo, organização financeira e relacionamento comercial.</li>
+        </ul>
+    </div>
+</div>
+
 <!-- ── COMANDAAPP ── -->
 <div class="container" id="comanda">
-    <div class="section-title"><h2>02. Case Principal — ComandaApp</h2></div>
+    <div class="section-title"><h2>03. Case Principal — ComandaApp</h2></div>
 
     <div class="case-header">
         <p class="case-eyebrow">// produto em produção</p>
@@ -805,7 +893,7 @@
 
 <!-- ── SEGURANÇA APLICADA ── -->
 <div class="container" id="security">
-    <div class="section-title"><h2>03. Segurança Aplicada</h2></div>
+    <div class="section-title"><h2>04. Segurança Aplicada</h2></div>
 
     <p style="font-size:0.88rem; color:var(--text-dim); margin-bottom:28px; max-width:680px; line-height:1.85;">
         Durante o desenvolvimento do ComandaApp, identifiquei e corrigi uma vulnerabilidade
@@ -859,7 +947,7 @@
 
 <!-- ── PROJETOS ACADÊMICOS ── -->
 <div class="container" id="academic">
-    <div class="section-title"><h2>04. Projetos Acadêmicos</h2></div>
+    <div class="section-title"><h2>05. Projetos Acadêmicos</h2></div>
 
     <p style="font-size:0.88rem; color:var(--text-dim); margin-bottom:28px; max-width:680px; line-height:1.85;">
         Projetos desenvolvidos durante o curso de Segurança da Informação no Senac DF.
@@ -903,7 +991,7 @@
 
 <!-- ── SKILLS ── -->
 <div class="container" id="skills">
-    <div class="section-title"><h2>05. Skills</h2></div>
+    <div class="section-title"><h2>06. Skills</h2></div>
 
     <div class="skills-block">
         <h3>// Desenvolvimento Mobile</h3>
@@ -947,7 +1035,7 @@
 
 <!-- ── CERTS ── -->
 <div class="container" id="certs">
-    <div class="section-title"><h2>06. Certificações</h2></div>
+    <div class="section-title"><h2>07. Certificações</h2></div>
     <div class="cert-grid">
         <div class="cert-card">
             <h3>AWS Certified Cloud Practitioner</h3>
@@ -962,7 +1050,7 @@
 
 <!-- ── CONTATO ── -->
 <div class="container" id="contact">
-    <div class="section-title"><h2>07. Contato</h2></div>
+    <div class="section-title"><h2>08. Contato</h2></div>
     <p class="contact-intro">
         Aberto a estágio, CLT ou projetos freelancer.<br>
         Prefiro uma conversa direta — me manda uma mensagem.
@@ -997,7 +1085,7 @@
 
 <footer>
     <p>© 2026 Eduardo Pereira &nbsp;·&nbsp;
-    <a href="../Eduardo Pereira Correa .pdf" download>Download CV</a></p>
+    <a href="../Curriculo_Eduardo_Pereira_Vendas.pdf" download>Download CV</a></p>
 </footer>
 
 <script>
